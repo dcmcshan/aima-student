@@ -1,0 +1,20 @@
+{
+  "name": "AIMA Assignment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.11", "installTools": true }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [],
+      "settings": {
+        "workbench.startupEditor": "readme"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "postCreateCommand": "curl -sL -o /tmp/aima-exercise-forms.vsix 'https://github.com/InquiryInstitute/aima-exercise-forms/releases/download/v0.1.1/aima-exercise-forms-0.1.1.vsix' && code --install-extension /tmp/aima-exercise-forms.vsix || true"
+}

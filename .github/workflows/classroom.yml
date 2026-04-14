@@ -1,0 +1,36 @@
+# Run autograding on push. Uses repo name to determine chapter (e.g. lecture-01-* -> ch01).
+name: Autograde
+on:
+  push:
+    branches: [main]
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+        working-directory: .
+      - name: Determine chapter and grade
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          REPO="${{ github.repository }}"
+          if [[ "$REPO" =~ lecture-([0-9]+)- ]]; then
+            CH=${BASH_REMATCH[1]}
+            CH_NUM=$(printf '%02d' "$CH")
+            FILES="exercises/ch${CH_NUM}/ex_1.md exercises/ch${CH_NUM}/ex_2.md"
+            if ls $FILES 1>/dev/null 2>&1; then
+              node scripts/grade-with-bedrock.js $FILES
+            else
+              echo "No exercise files for ch${CH_NUM}; skipping."
+            fi
+          else
+            echo "Repo name does not match lecture-NN-*; skipping autograde."
+          fi

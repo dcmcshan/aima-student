@@ -1,0 +1,11 @@
+{
+  "name": "aima-assignment",
+  "private": true,
+  "description": "Student assignment repo for AIMA (from aima-assignment-starter template)",
+  "scripts": {
+    "grade": "node scripts/grade-with-bedrock.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.0.0"
+  }
+}
