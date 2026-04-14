@@ -2,9 +2,13 @@
 
 Use this repository for **Artificial Intelligence: A Modern Approach** exercises. Open it in **GitHub Codespaces** (recommended) or clone locally.
 
-## Jupyter Book (center preview)
+## Jupyter Slides (opens first — instead of README)
 
-The dev container builds a **Jupyter Book** (`jupyter-book build .`) into **`_build/html`** and starts a static server on **port 8765**. VS Code / Codespaces should **open that URL in the editor preview** (Simple Browser–style) instead of focusing `README.md`.
+After the container starts, **`slides/AIMA-course.ipynb`** opens in the editor. Cells use **slideshow metadata** (`slide`, `subslide`, …). Use the **Jupyter Slide Show** commands (e.g. *Switch Slide Type*, *Edit Slide Type*) from the Command Palette to adjust layout, or export with `jupyter nbconvert … --to slides` when you need Reveal/HTML.
+
+## Jupyter Book (static site)
+
+The dev container builds a **Jupyter Book** (`jupyter-book build .`) into **`_build/html`** and serves it on **port 8765**. Open it from the **Ports** view (you’ll get a notification; it no longer auto-steals focus from the welcome notebook).
 
 ## JupyterLab (in the Codespace)
 
@@ -26,7 +30,7 @@ From a terminal you can also run:
 ## Start here
 
 1. Open this repo on GitHub → **Code** → **Codespaces** → **Create codespace on main**.
-2. After create finishes, wait for the book build, then use the **Ports** preview for **8765** (or the auto-opened preview tab).
+2. Wait for setup; **`slides/AIMA-course.ipynb`** should open automatically (replacing README as the landing experience). Use **Ports** to open **8765** (book) or **8888** (JupyterLab) as needed.
 3. Edit the markdown under `exercises/chNN/`, fill the `<!-- answer -->` blocks, commit, and push.
 
 ## Assignments by chapter

@@ -19,3 +19,11 @@ if [[ -x "${JUP}" ]]; then
     --ServerApp.allow_origin='*' \
     >> /tmp/jupyter-lab.log 2>&1 &
 fi
+
+# Open Jupyter Slides welcome notebook in the editor (replaces README as the first thing you see).
+if command -v code >/dev/null 2>&1 && [[ -f "${ROOT}/slides/AIMA-course.ipynb" ]]; then
+  (
+    sleep 8
+    code -r "${ROOT}/slides/AIMA-course.ipynb" 2>/dev/null || true
+  ) &
+fi

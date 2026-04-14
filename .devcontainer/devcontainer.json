@@ -11,7 +11,7 @@
   "portsAttributes": {
     "8765": {
       "label": "Jupyter Book (static)",
-      "onAutoForward": "openPreview"
+      "onAutoForward": "notify"
     },
     "8888": {
       "label": "JupyterLab",
