@@ -2,6 +2,8 @@
 
 Use this repository for **Artificial Intelligence: A Modern Approach** exercises. Open it in **GitHub Codespaces** (recommended) or clone locally.
 
+**Browse the full guide:** [**AIMA home (all chapters)**](docs/README.md) — one page per chapter with every exercise inlined for reading; your answers still go in [`exercises/chNN/`](exercises/).
+
 ## Start here
 
 1. Open this repo on GitHub → **Code** → **Codespaces** → **Create codespace on main**.
